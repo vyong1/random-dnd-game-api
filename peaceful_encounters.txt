@@ -1,4 +1,24 @@
 /begin
+You come across a purse with the royal insignia on it. Inside the purse is 50 gold coins.
+1.) Take the money for yourself | You gain 50 gold!
+2.) Give the purse to the local tavern's lost and found | After you leave the tavern, the barkeep pockets the money surreptitiously...
+/end
+
+/begin
+A purple monkey jumps at your party and starts screeching.
+1.) Approach | You walk closer to the monkey and try to pet it. It bites your hand and deals 3 damage to you, then swings away on a tree.
+2.) Attack | You slap the monkey and yell at it for being purple. The monkey screeches at you, but leaves anyways.
+3.) Leave | You choose to just walk around the monkey. It screeches at you but doesn't do anything else.
+/end
+
+/begin
+You jolt awake in your tent. Looking at the sun, it appears that you have woken up too early.
+1.) Try to go back to sleep | You lay back and shut your eyes, but can't fall asleep. The next two hours of you pretending to be asleep are intensely boring. You might want to get your insomnia checked out.
+2.) Wake up anyways | You spend the rest of your day tired and angry. You find some energy herbs and chew on them. You feel your heart beat faster, but you're still tired. Huh...
+3.) Alert your party that something feels uneasy | You wake up and start whisper-yelling at your party to wake up because you feel threatened. You find no threats and now your party is mad at you for waking them up. 
+/end
+
+/begin
 
 1.) Approach | 
 2.) Attack | 
