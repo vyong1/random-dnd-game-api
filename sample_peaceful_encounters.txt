@@ -1,0 +1,26 @@
+Descriptions:
+"You <encounter synonym> a <character>"
+
+you meet cleric mindein
+you encounter a starving puppy
+you come across a corpse
+
+-----------------------------------
+
+Actions:
+1.) Approach
+2.) Fight
+
+-----------------------------------
+
+Outcomes:
+The <character> <verbs> you
+
+cleric mindein 
+
+
+====================================================
+====================================================
+====================================================
+====================================================
+Encounters - pre-generate

@@ -15,17 +15,26 @@ class PeacefulEncounter():
         return self.actions_outcomes[action]
 
     def __str__(self):
-        return self.desc
+        return "{}\n{}".format(self.desc, str(self.actions_outcomes))
+    
+    def generate_random_encounter():
+        encounter = PeacefulEncounter(
+            desc = "You <encounter synonym> a <person>", 
+            actions_outcomes = {
+                "1.) <action 1>" :  "<outcome 1>",
+                "1.) <action 2>" :  "<outcome 2>",
+            })
+        return encounter
 
 class CombatEncounter():
-    def __init__(self, desc, name, hp, ac, dmg):
+    def __init__(self, desc, name, hp, ac, enemy_dmg_range):
         self.desc = desc
         self.name = name
         self.hp = hp
         self.ac = ac
-        self.dmg = dmg
+        self.enemy_dmg_range = enemy_dmg_range
         self.actions = [
-            '1.) Attack', 
+            '1.) Attack',
             '2.) Flee']
     
     def attack(self, hit_bonus, dmg_range):
@@ -43,20 +52,31 @@ class CombatEncounter():
     def __str__(self):
         return self.desc
 
-merchant_encounter = PeacefulEncounter(
-    desc = "You see a merchant", 
-    actions_outcomes = {
-        "1.) Kill Him" :  "Gain 30 gold. Lose morality :(",
-        "2.) Buy a sword" : "Spent 5 gold, got an Iron Sword",
-        "3.) Buy platemail" : "Spent 10 gold, got Platemail"
-    })
+def read_peaceful_encounters(filename="peaceful_encounters.txt"):
+    f = open(filename, "r")
+    all_encounters = []
+    lines = []
+    for line in f:
+        if (line.strip() == "/begin"):
+            lines = []
+        elif (line.strip() == ""):
+            pass
+        elif (line.strip() == "/end"):
+            desc = lines[0].strip()
+            actions_outcomes = {}
+            for action_outcome in lines[1:]:
+                split = action_outcome.split(" | ")
+                action = split[0].strip()
+                outcome = split[1].strip()
+                actions_outcomes[action] = outcome
+            encounter = PeacefulEncounter(desc=desc, actions_outcomes=actions_outcomes)
+            all_encounters.append(encounter)
+        else:
+            lines.append(line)
+    f.close()
+    return all_encounters
 
-bandit_encounter = CombatEncounter(
-    desc = "You see a bandit",
-    name = "Bandit",
-    hp = "20",
-    ac = 14,
-    dmg = (1, 8)
-)
 
-bandit_encounter.attack(8, (1, 20))
+encs = read_peaceful_encounters()
+for enc in encs:
+    print(enc)
